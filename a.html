@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire avec JavaScript</title>
+    <link rel="icon" type="image/x-icon" href="https://m.media-amazon.com/images/S/pv-target-images/54023a2fed8c040a592bf05c6ffa0050c8e535c227d4811d5d6aa847f4a59763.jpg">
+</head>
+<body>
+
+    <form id="monFormulaire">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom"><br><br>
+        
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom"><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label for="age">Âge:</label>
+        <input type="number" id="age" name="age"><br><br>
+        
+        <!-- Bouton de soumission -->
+        <div class="submit" onclick="submitForm()">ENVOYER</div>
+        
+        <!-- Bouton pour afficher les infos -->
+        <div id="afficherInfos" onclick="afficherInfosInputs()">Afficher les infos des inputs</div>
+    </form>
+
+    <script>
+        function afficherInfosInputs() {
+            var inputs = document.querySelectorAll('#monFormulaire input');
+
+            inputs.forEach(function(input) {
+                console.log("Nom: " + input.name + ", Type: " + input.type);
+            });
+
+            // Changer la couleur du bouton de soumission en bleu
+            var submitButton = document.querySelector('.submit');
+            submitButton.style.backgroundColor = '#a5a0b9';
+        }
+
+        function submitForm() {
+            // Empêche le comportement par défaut du formulaire
+            return false;
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 50px;
+            margin: 0;
+        }
+
+        #monFormulaire {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        #monFormulaire label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        #monFormulaire input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #555;
+            background-color: #f9f9f9;
+        }
+
+        .submit {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .submit:hover {
+            background-color: #333333;
+        }
+
+        #afficherInfos {
+            margin-top: 10px;
+            cursor: pointer;
+ 
+            text-decoration: underline;
+        }
+    </style>
+
+</body>
+</html>
